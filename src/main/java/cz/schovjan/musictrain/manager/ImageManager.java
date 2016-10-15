@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import javax.activation.MimetypesFileTypeMap;
 import javax.imageio.ImageIO;
+import org.apache.tika.Tika;
 
 /**
  *
@@ -25,14 +25,13 @@ public class ImageManager {
 	}
 
 	public List<BufferedImage> loadImages(File folder) throws IOException {
+		Tika tika = new Tika();
 		List<BufferedImage> images = new ArrayList<>();
 		List<File> list = new ArrayList();
 		Collections.addAll(list, folder.listFiles());
 		Collections.sort(list);
 		for (File f : list) {
-			String mimetype = new MimetypesFileTypeMap().getContentType(f);
-			String type = mimetype.split("/")[0];
-			if (type.equals("image")) {
+			if (tika.detect(f).contains("image")) {
 				BufferedImage img = ImageIO.read(f);
 				images.add(img);
 			}

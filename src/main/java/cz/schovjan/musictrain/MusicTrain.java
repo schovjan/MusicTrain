@@ -5,7 +5,6 @@
  */
 package cz.schovjan.musictrain;
 
-import com.sun.glass.events.KeyEvent;
 import cz.schovjan.musictrain.manager.AudioManager;
 import cz.schovjan.musictrain.manager.ImageManager;
 import cz.schovjan.musictrain.manager.SettingsManager;
@@ -15,6 +14,7 @@ import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
